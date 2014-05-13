@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A11F86219221F7D00B9161C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A11F86119221F7D00B9161C /* Foundation.framework */; };
+		2A11F86419221F7D00B9161C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A11F86319221F7D00B9161C /* CoreGraphics.framework */; };
+		2A11F86619221F7D00B9161C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A11F86519221F7D00B9161C /* UIKit.framework */; };
+		2A11F86C19221F7D00B9161C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A11F86A19221F7D00B9161C /* InfoPlist.strings */; };
+		2A11F86E19221F7D00B9161C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F86D19221F7D00B9161C /* main.m */; };
+		2A11F87219221F7D00B9161C /* CUSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F87119221F7D00B9161C /* CUSAppDelegate.m */; };
+		2A11F87419221F7E00B9161C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A11F87319221F7E00B9161C /* Images.xcassets */; };
+		2A11F87B19221F7E00B9161C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A11F87A19221F7E00B9161C /* XCTest.framework */; };
+		2A11F87C19221F7E00B9161C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A11F86119221F7D00B9161C /* Foundation.framework */; };
+		2A11F87D19221F7E00B9161C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A11F86519221F7D00B9161C /* UIKit.framework */; };
+		2A11F88519221F7E00B9161C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A11F88319221F7E00B9161C /* InfoPlist.strings */; };
+		2A11F88719221F7E00B9161C /* CUSFileStorageExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F88619221F7E00B9161C /* CUSFileStorageExampleTests.m */; };
+		2A11F89619221FD400B9161C /* CUSFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89519221FD400B9161C /* CUSFileStorage.m */; };
+		2A11F89919221FF300B9161C /* DataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89819221FF300B9161C /* DataPersistence.m */; };
+		2A11F89D1922270F00B9161C /* CUSSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89C1922270F00B9161C /* CUSSerializer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A11F87E19221F7E00B9161C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A11F85619221F7D00B9161C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A11F85D19221F7D00B9161C;
+			remoteInfo = CUSFileStorageExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A11F85E19221F7D00B9161C /* CUSFileStorageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CUSFileStorageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A11F86119221F7D00B9161C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2A11F86319221F7D00B9161C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2A11F86519221F7D00B9161C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2A11F86919221F7D00B9161C /* CUSFileStorageExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CUSFileStorageExample-Info.plist"; sourceTree = "<group>"; };
+		2A11F86B19221F7D00B9161C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A11F86D19221F7D00B9161C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A11F86F19221F7D00B9161C /* CUSFileStorageExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CUSFileStorageExample-Prefix.pch"; sourceTree = "<group>"; };
+		2A11F87019221F7D00B9161C /* CUSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUSAppDelegate.h; sourceTree = "<group>"; };
+		2A11F87119221F7D00B9161C /* CUSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUSAppDelegate.m; sourceTree = "<group>"; };
+		2A11F87319221F7E00B9161C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2A11F87919221F7E00B9161C /* CUSFileStorageExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CUSFileStorageExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A11F87A19221F7E00B9161C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2A11F88219221F7E00B9161C /* CUSFileStorageExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CUSFileStorageExampleTests-Info.plist"; sourceTree = "<group>"; };
+		2A11F88419221F7E00B9161C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A11F88619221F7E00B9161C /* CUSFileStorageExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CUSFileStorageExampleTests.m; sourceTree = "<group>"; };
+		2A11F89419221FD400B9161C /* CUSFileStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSFileStorage.h; sourceTree = "<group>"; };
+		2A11F89519221FD400B9161C /* CUSFileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSFileStorage.m; sourceTree = "<group>"; };
+		2A11F89719221FF300B9161C /* DataPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPersistence.h; sourceTree = "<group>"; };
+		2A11F89819221FF300B9161C /* DataPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPersistence.m; sourceTree = "<group>"; };
+		2A11F89B1922270F00B9161C /* CUSSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSSerializer.h; sourceTree = "<group>"; };
+		2A11F89C1922270F00B9161C /* CUSSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSerializer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A11F85B19221F7D00B9161C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A11F86419221F7D00B9161C /* CoreGraphics.framework in Frameworks */,
+				2A11F86619221F7D00B9161C /* UIKit.framework in Frameworks */,
+				2A11F86219221F7D00B9161C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A11F87619221F7E00B9161C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A11F87B19221F7E00B9161C /* XCTest.framework in Frameworks */,
+				2A11F87D19221F7E00B9161C /* UIKit.framework in Frameworks */,
+				2A11F87C19221F7E00B9161C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A11F85519221F7D00B9161C = {
+			isa = PBXGroup;
+			children = (
+				2A11F89A1922270F00B9161C /* CUSSerializer */,
+				2A11F89019221F9A00B9161C /* CUSFileStorage */,
+				2A11F86719221F7D00B9161C /* CUSFileStorageExample */,
+				2A11F88019221F7E00B9161C /* CUSFileStorageExampleTests */,
+				2A11F86019221F7D00B9161C /* Frameworks */,
+				2A11F85F19221F7D00B9161C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2A11F85F19221F7D00B9161C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F85E19221F7D00B9161C /* CUSFileStorageExample.app */,
+				2A11F87919221F7E00B9161C /* CUSFileStorageExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A11F86019221F7D00B9161C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F86119221F7D00B9161C /* Foundation.framework */,
+				2A11F86319221F7D00B9161C /* CoreGraphics.framework */,
+				2A11F86519221F7D00B9161C /* UIKit.framework */,
+				2A11F87A19221F7E00B9161C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A11F86719221F7D00B9161C /* CUSFileStorageExample */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F87019221F7D00B9161C /* CUSAppDelegate.h */,
+				2A11F87119221F7D00B9161C /* CUSAppDelegate.m */,
+				2A11F87319221F7E00B9161C /* Images.xcassets */,
+				2A11F86819221F7D00B9161C /* Supporting Files */,
+			);
+			path = CUSFileStorageExample;
+			sourceTree = "<group>";
+		};
+		2A11F86819221F7D00B9161C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F86919221F7D00B9161C /* CUSFileStorageExample-Info.plist */,
+				2A11F86A19221F7D00B9161C /* InfoPlist.strings */,
+				2A11F86D19221F7D00B9161C /* main.m */,
+				2A11F86F19221F7D00B9161C /* CUSFileStorageExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A11F88019221F7E00B9161C /* CUSFileStorageExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F88619221F7E00B9161C /* CUSFileStorageExampleTests.m */,
+				2A11F88119221F7E00B9161C /* Supporting Files */,
+			);
+			path = CUSFileStorageExampleTests;
+			sourceTree = "<group>";
+		};
+		2A11F88119221F7E00B9161C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F88219221F7E00B9161C /* CUSFileStorageExampleTests-Info.plist */,
+				2A11F88319221F7E00B9161C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A11F89019221F9A00B9161C /* CUSFileStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F89719221FF300B9161C /* DataPersistence.h */,
+				2A11F89819221FF300B9161C /* DataPersistence.m */,
+				2A11F89419221FD400B9161C /* CUSFileStorage.h */,
+				2A11F89519221FD400B9161C /* CUSFileStorage.m */,
+			);
+			path = CUSFileStorage;
+			sourceTree = "<group>";
+		};
+		2A11F89A1922270F00B9161C /* CUSSerializer */ = {
+			isa = PBXGroup;
+			children = (
+				2A11F89B1922270F00B9161C /* CUSSerializer.h */,
+				2A11F89C1922270F00B9161C /* CUSSerializer.m */,
+			);
+			path = CUSSerializer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A11F85D19221F7D00B9161C /* CUSFileStorageExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A11F88A19221F7E00B9161C /* Build configuration list for PBXNativeTarget "CUSFileStorageExample" */;
+			buildPhases = (
+				2A11F85A19221F7D00B9161C /* Sources */,
+				2A11F85B19221F7D00B9161C /* Frameworks */,
+				2A11F85C19221F7D00B9161C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CUSFileStorageExample;
+			productName = CUSFileStorageExample;
+			productReference = 2A11F85E19221F7D00B9161C /* CUSFileStorageExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A11F87819221F7E00B9161C /* CUSFileStorageExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A11F88D19221F7E00B9161C /* Build configuration list for PBXNativeTarget "CUSFileStorageExampleTests" */;
+			buildPhases = (
+				2A11F87519221F7E00B9161C /* Sources */,
+				2A11F87619221F7E00B9161C /* Frameworks */,
+				2A11F87719221F7E00B9161C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A11F87F19221F7E00B9161C /* PBXTargetDependency */,
+			);
+			name = CUSFileStorageExampleTests;
+			productName = CUSFileStorageExampleTests;
+			productReference = 2A11F87919221F7E00B9161C /* CUSFileStorageExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A11F85619221F7D00B9161C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CUS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = zhangyu;
+				TargetAttributes = {
+					2A11F87819221F7E00B9161C = {
+						TestTargetID = 2A11F85D19221F7D00B9161C;
+					};
+				};
+			};
+			buildConfigurationList = 2A11F85919221F7D00B9161C /* Build configuration list for PBXProject "CUSFileStorageExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2A11F85519221F7D00B9161C;
+			productRefGroup = 2A11F85F19221F7D00B9161C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A11F85D19221F7D00B9161C /* CUSFileStorageExample */,
+				2A11F87819221F7E00B9161C /* CUSFileStorageExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A11F85C19221F7D00B9161C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A11F86C19221F7D00B9161C /* InfoPlist.strings in Resources */,
+				2A11F87419221F7E00B9161C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A11F87719221F7E00B9161C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A11F88519221F7E00B9161C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A11F85A19221F7D00B9161C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A11F89919221FF300B9161C /* DataPersistence.m in Sources */,
+				2A11F89D1922270F00B9161C /* CUSSerializer.m in Sources */,
+				2A11F87219221F7D00B9161C /* CUSAppDelegate.m in Sources */,
+				2A11F86E19221F7D00B9161C /* main.m in Sources */,
+				2A11F89619221FD400B9161C /* CUSFileStorage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A11F87519221F7E00B9161C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A11F88719221F7E00B9161C /* CUSFileStorageExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A11F87F19221F7E00B9161C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A11F85D19221F7D00B9161C /* CUSFileStorageExample */;
+			targetProxy = 2A11F87E19221F7E00B9161C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2A11F86A19221F7D00B9161C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A11F86B19221F7D00B9161C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A11F88319221F7E00B9161C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A11F88419221F7E00B9161C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2A11F88819221F7E00B9161C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2A11F88919221F7E00B9161C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A11F88B19221F7E00B9161C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CUSFileStorageExample/CUSFileStorageExample-Prefix.pch";
+				INFOPLIST_FILE = "CUSFileStorageExample/CUSFileStorageExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2A11F88C19221F7E00B9161C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CUSFileStorageExample/CUSFileStorageExample-Prefix.pch";
+				INFOPLIST_FILE = "CUSFileStorageExample/CUSFileStorageExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2A11F88E19221F7E00B9161C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CUSFileStorageExample.app/CUSFileStorageExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CUSFileStorageExample/CUSFileStorageExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CUSFileStorageExampleTests/CUSFileStorageExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2A11F88F19221F7E00B9161C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CUSFileStorageExample.app/CUSFileStorageExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CUSFileStorageExample/CUSFileStorageExample-Prefix.pch";
+				INFOPLIST_FILE = "CUSFileStorageExampleTests/CUSFileStorageExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A11F85919221F7D00B9161C /* Build configuration list for PBXProject "CUSFileStorageExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A11F88819221F7E00B9161C /* Debug */,
+				2A11F88919221F7E00B9161C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A11F88A19221F7E00B9161C /* Build configuration list for PBXNativeTarget "CUSFileStorageExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A11F88B19221F7E00B9161C /* Debug */,
+				2A11F88C19221F7E00B9161C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A11F88D19221F7E00B9161C /* Build configuration list for PBXNativeTarget "CUSFileStorageExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A11F88E19221F7E00B9161C /* Debug */,
+				2A11F88F19221F7E00B9161C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A11F85619221F7D00B9161C /* Project object */;
+}
