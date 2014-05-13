@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 zhangyu. All rights reserved.
 //
 #import "CUSSerializer.h"
+
 /**
- * Don't alloc by yourself.
- * Use the public method named shareFileStorage instead of alloc.
+ * @abstract Don't alloc by yourself.
+ *           Use the public method named shareFileStorage instead of alloc.
  */
 @interface CUSFileStorage : NSObject
 @property(nonatomic,strong)NSString *tableName;
