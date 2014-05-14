@@ -1,10 +1,7 @@
-//
-//  CUSSerializer.m
-//  CUSSerializerExample
-//
-//  Created by zhangyu on 14-5-13.
-//  Copyright (c) 2014 zhangyu. All rights reserved.
-//
+/**
+ @version 1.00 2014/05/13 Creation
+ @copyright Copyright (c) 2014 zhangyu. All rights reserved.
+ */
 
 #import "CUSSerializer.h"
 #import <objc/runtime.h>
@@ -18,13 +15,28 @@
 #define CUS_RETAIN(exp) [exp retain]
 #endif
 
-//pre interface
+/**
+ @class CUSModel
+ @abstract pre define interface
+ */
 @interface CUSSerializerUtils : NSObject
+
+/**
+ @abstract get all properties from class
+ @param clazz
+ @result NSArray
+ */
 +(NSArray *)getPropertyListByClass: (Class)clazz;
+
+/**
+ @abstract create instance
+ @param serializeValue NSDictionary
+ @result NSDictionary or Model
+ */
 +(id)deserializeWithDictionary:(NSDictionary *)serializeValue;
 @end
 
-//////////////////////CUSModel//////////////////////
+//////////////////////////////CUSModel//////////////////////////////
 @implementation CUSModel
 
 -(NSDictionary *)serialize{
@@ -38,7 +50,7 @@
                 continue;
             }
             value = [self valueForKey:key];
-            [self setValueToDictionary:dic withKey:key withValue:value];
+            [self serializeBoxing:dic withKey:key withValue:value];
         }
         @catch (NSException *exception) {
             if ([CUSSerializer getLogStatus]) {
@@ -55,11 +67,11 @@
     return NO;
 }
 
--(void)setValueToDictionary:(NSMutableDictionary *)dic withKey:(NSString *)key withValue:(id)value{
+-(void)serializeBoxing:(id)serializeContainner withKey:(NSString *)key withValue:(id)value{
     if (!value) {
         return;
     }
-    
+    NSMutableDictionary *dic = (NSMutableDictionary *)serializeContainner;
     if ([value conformsToProtocol:@protocol(CUSSerializable)]) {
         [dic setValue:[value serialize] forKey:key];
     }else{
@@ -67,20 +79,79 @@
     }
 }
 
+-(BOOL)deserializeIgnoreKey:(NSString *)key{
+    if ([CUS_OC_CLASSNAME isEqualToString:key]) {
+        return  YES;
+    }
+    return NO;
+}
+
+-(void)deserializeBoxing:(id)deserializeContainner withKey:(NSString *)key withValue:(id)value{
+    if ([self deserializeIgnoreKey:key]) {
+        return;
+    }
+    if (!value) {
+        return;
+    }
+    if ([value conformsToProtocol:@protocol(CUSDeserializable)]) {
+        [self setValue:[value deserialize] forKey:key];
+    }else{
+        [self setValue:value forKey:key];
+    }
+}
+
+-(void)deserialize:(NSDictionary *)dic{
+    NSArray *array = [dic allKeys];
+    for (NSString *key in array) {
+        id value = nil;
+        @try {
+            if ([self deserializeIgnoreKey:key]) {
+                continue;
+            }
+            value = [dic valueForKey:key];
+            [self deserializeBoxing:dic withKey:key withValue:value];
+        }
+        @catch (NSException *exception) {
+            if ([CUSSerializer getLogStatus]) {
+                NSLog(@"exception:%@\nkey:%@   value:%@",exception,key,value);
+            }
+        }
+    }
+}
 @end
 
 
-//////////////////////NSArray//////////////////////
+//////////////////////////////NSArray//////////////////////////////
+@interface NSArray(CUSSerializerBoxing)<CUSSerializableBoxing,CUSDeserializableBoxing>
+@end
+
+@implementation NSArray(CUSSerializerBoxing)
+-(void)serializeBoxing:(id)serializeContainner withKey:(NSString *)key withValue:(id)value{
+    NSMutableArray *array = (NSMutableArray *)serializeContainner;
+    if ([value conformsToProtocol:@protocol(CUSSerializable)]) {
+        [array addObject:[value serialize]];
+    }else{
+        [array addObject:value];
+    }
+}
+
+-(void)deserializeBoxing:(id)deserializeContainner withKey:(NSString *)key withValue:(id)value{
+    NSMutableArray *array = (NSMutableArray *)deserializeContainner;
+    if ([value conformsToProtocol:@protocol(CUSDeserializable)]) {
+        [array addObject:[value deserialize]];
+    }else{
+        [array addObject:value];
+    }
+}
+@end
+
 @implementation NSArray(CUSSerializer)
+
 -(NSArray *)serialize{
     NSMutableArray *array = [NSMutableArray array];
     for (id value in self) {
         @try {
-            if ([value conformsToProtocol:@protocol(CUSSerializable)]) {
-                [array addObject:[value serialize]];
-            }else{
-                [array addObject:value];
-            }
+            [self serializeBoxing:array withKey:nil withValue:value];
         }
         @catch (NSException *exception) {
             if ([CUSSerializer getLogStatus]) {
@@ -95,11 +166,7 @@
     NSMutableArray *array = [NSMutableArray array];
     for (id value in self) {
         @try {
-            if ([value conformsToProtocol:@protocol(CUSDeserializable)]) {
-                [array addObject:[value deserialize]];
-            }else{
-                [array addObject:value];
-            }
+            [self deserializeBoxing:array withKey:nil withValue:value];
         }
         @catch (NSException *exception) {
             if ([CUSSerializer getLogStatus]) {
@@ -111,7 +178,45 @@
 }
 @end
 
-//////////////////////NSDictionary//////////////////////
+//////////////////////////////NSDictionary//////////////////////////////
+@interface NSDictionary(CUSSerializerBoxing)<CUSSerializableBoxing,CUSDeserializableBoxing>
+@end
+
+@implementation NSDictionary(CUSSerializerBoxing)
+-(void)serializeBoxing:(id)serializeContainner withKey:(NSString *)key withValue:(id)value{
+    NSMutableDictionary *dic = (NSMutableDictionary *)serializeContainner;
+    if (!value) {
+        return;
+    }
+    if ([value conformsToProtocol:@protocol(CUSSerializable)]) {
+        [dic setValue:[value serialize] forKey:key];
+    }else{
+        [dic setValue:value forKey:key];
+    }
+}
+
+-(void)deserializeBoxing:(id)deserializeContainner withKey:(NSString *)key withValue:(id)value{
+    if (!value) {
+        return;
+    }
+    id classModel = deserializeContainner;
+    
+    id processValue = value;
+    if ([value conformsToProtocol:@protocol(CUSDeserializable)]) {
+        processValue = [value deserialize];
+    }
+    
+    if ([classModel isKindOfClass:[NSDictionary class]]) {
+        [classModel setValue:processValue forKey:key];
+    }else{
+        if ([classModel conformsToProtocol:@protocol(CUSDeserializableBoxing)] ) {
+            [classModel deserializeBoxing:nil withKey:key withValue:processValue];
+        }else{
+            [classModel setValue:processValue forKey:key];
+        }
+    }
+}
+@end
 @implementation NSDictionary(CUSSerializer)
 -(NSDictionary *)serialize{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -121,14 +226,7 @@
         id value = nil;
         @try {
             value = [self valueForKey:key];
-            if (!value) {
-                continue;
-            }
-            if ([value conformsToProtocol:@protocol(CUSSerializable)]) {
-                [dic setValue:[value serialize] forKey:key];
-            }else{
-                [dic setValue:value forKey:key];
-            }
+            [self serializeBoxing:dic withKey:key withValue:value];
         }
         @catch (NSException *exception) {
             if ([CUSSerializer getLogStatus]) {
@@ -136,8 +234,6 @@
             }
         }
     }
-    NSString *className = [CUSSerializer getMappingName:NSStringFromClass([self class])];
-    [dic setValue:className forKey:CUS_OC_CLASSNAME];
     return dic;
 }
 
@@ -152,11 +248,7 @@
             if (!value) {
                 continue;
             }
-            if ([value conformsToProtocol:@protocol(CUSDeserializable)]) {
-                [classModel setValue:[value deserialize] forKey:key];
-            }else{
-                [classModel setValue:value forKey:key];
-            }
+            [self deserializeBoxing:classModel withKey:key withValue:value];
         }
         @catch (NSException *exception) {
             if ([CUSSerializer getLogStatus]) {
@@ -169,7 +261,7 @@
 @end
 
 
-//////////////////////Utils//////////////////////
+//////////////////////////////Utils//////////////////////////////
 @implementation CUSSerializerUtils
 
 +(NSArray *)getPropertyListByClass: (Class)clazz
@@ -218,27 +310,27 @@
 }
 @end
 
-//////////////////////static//////////////////////
+//////////////////////////////static//////////////////////////////
 static BOOL CUSSerializer_LOG_STAUTS = YES;
-//for efficiency
-static NSMutableDictionary *CUSSerializer_Class_Mapping0;
-static NSMutableDictionary *CUSSerializer_Class_Mapping1;
+static NSMutableDictionary *CUS_Mapping0;
+static NSMutableDictionary *CUS_Mapping1;//for efficiency
 @implementation CUSSerializer
+
 +(void)setClassMapping:(NSString *)className mappingFor:(NSString *)mappingName{
-    if (!CUSSerializer_Class_Mapping0) {
-        CUSSerializer_Class_Mapping0 = [NSMutableDictionary dictionary];
+    if (!CUS_Mapping0) {
+        CUS_Mapping0 = [NSMutableDictionary dictionary];
     }
     
-    if (!CUSSerializer_Class_Mapping1) {
-        CUSSerializer_Class_Mapping1 = [NSMutableDictionary dictionary];
+    if (!CUS_Mapping1) {
+        CUS_Mapping1 = [NSMutableDictionary dictionary];
     }
     
-    [CUSSerializer_Class_Mapping0 setValue:className forKey:mappingName];
-    [CUSSerializer_Class_Mapping1 setValue:mappingName forKey:className];
+    [CUS_Mapping0 setValue:className forKey:mappingName];
+    [CUS_Mapping1 setValue:mappingName forKey:className];
 }
 
 +(NSString *)getClassName:(NSString *)mappingName{
-    NSString *returnValue = [CUSSerializer_Class_Mapping0 objectForKey:mappingName];
+    NSString *returnValue = [CUS_Mapping0 objectForKey:mappingName];
     if (returnValue == nil) {
         return mappingName;
     }
@@ -246,7 +338,7 @@ static NSMutableDictionary *CUSSerializer_Class_Mapping1;
 }
 
 +(NSString *)getMappingName:(NSString *)className{
-    NSString *returnValue = [CUSSerializer_Class_Mapping1 objectForKey:className];
+    NSString *returnValue = [CUS_Mapping1 objectForKey:className];
     if (returnValue == nil) {
         return className;
     }
@@ -256,6 +348,7 @@ static NSMutableDictionary *CUSSerializer_Class_Mapping1;
 +(void)setLogStatus:(BOOL)status{
     CUSSerializer_LOG_STAUTS = status;
 }
+
 +(BOOL)getLogStatus{
     return CUSSerializer_LOG_STAUTS;
 }

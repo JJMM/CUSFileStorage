@@ -22,6 +22,7 @@
 		2A11F89619221FD400B9161C /* CUSFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89519221FD400B9161C /* CUSFileStorage.m */; };
 		2A11F89919221FF300B9161C /* DataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89819221FF300B9161C /* DataPersistence.m */; };
 		2A11F89D1922270F00B9161C /* CUSSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89C1922270F00B9161C /* CUSSerializer.m */; };
+		2A49EF8E19233DF2003AF796 /* CUSFileStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A49EF8D19233DF2003AF796 /* CUSFileStorageManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		2A11F89819221FF300B9161C /* DataPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPersistence.m; sourceTree = "<group>"; };
 		2A11F89B1922270F00B9161C /* CUSSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSSerializer.h; sourceTree = "<group>"; };
 		2A11F89C1922270F00B9161C /* CUSSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSerializer.m; sourceTree = "<group>"; };
+		2A49EF8C19233DF2003AF796 /* CUSFileStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSFileStorageManager.h; sourceTree = "<group>"; };
+		2A49EF8D19233DF2003AF796 /* CUSFileStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSFileStorageManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				2A11F89819221FF300B9161C /* DataPersistence.m */,
 				2A11F89419221FD400B9161C /* CUSFileStorage.h */,
 				2A11F89519221FD400B9161C /* CUSFileStorage.m */,
+				2A49EF8C19233DF2003AF796 /* CUSFileStorageManager.h */,
+				2A49EF8D19233DF2003AF796 /* CUSFileStorageManager.m */,
 			);
 			path = CUSFileStorage;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				2A11F87219221F7D00B9161C /* CUSAppDelegate.m in Sources */,
 				2A11F86E19221F7D00B9161C /* main.m in Sources */,
 				2A11F89619221FD400B9161C /* CUSFileStorage.m in Sources */,
+				2A49EF8E19233DF2003AF796 /* CUSFileStorageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
