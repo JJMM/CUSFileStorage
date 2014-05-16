@@ -12,6 +12,9 @@ static NSMutableDictionary *CUSFileStorageDictionary;
 
 @implementation CUSFileStorageManager
 
++(CUSFileStorage *)getFileStorage{
+    return [self getFileStorage:@"DefaultDB"];
+}
 +(CUSFileStorage *)getFileStorage:(NSString *)tableName{
     if (!CUSFileStorageDictionary) {
         CUSFileStorageDictionary = [[NSMutableDictionary alloc]init];
@@ -23,6 +26,16 @@ static NSMutableDictionary *CUSFileStorageDictionary;
         [CUSFileStorageDictionary setValue:fileStorage forKey:tableName];
     }
     return fileStorage;
+}
+
++(void)clearAllCache{
+    if (!CUSFileStorageDictionary) {
+        return;
+    }
+    for (CUSFileStorage *fileStorage in CUSFileStorageDictionary) {
+        [fileStorage clearCache];
+    }
+    [CUSFileStorageDictionary  removeAllObjects];
 }
 
 @end

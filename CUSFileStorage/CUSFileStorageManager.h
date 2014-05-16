@@ -10,5 +10,8 @@
 #import "CUSFileStorage.h"
 @interface CUSFileStorageManager : NSObject
 
++(CUSFileStorage *)getFileStorage;
 +(CUSFileStorage *)getFileStorage:(NSString *)tableName;
+
++(void)clearAllCache;
 @end

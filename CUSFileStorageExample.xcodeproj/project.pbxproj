@@ -23,6 +23,22 @@
 		2A11F89919221FF300B9161C /* DataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89819221FF300B9161C /* DataPersistence.m */; };
 		2A11F89D1922270F00B9161C /* CUSSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89C1922270F00B9161C /* CUSSerializer.m */; };
 		2A49EF8E19233DF2003AF796 /* CUSFileStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A49EF8D19233DF2003AF796 /* CUSFileStorageManager.m */; };
+		2A9ECE7019245413003DC18A /* CUSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6119245413003DC18A /* CUSMainViewController.m */; };
+		2A9ECE7119245413003DC18A /* CUSMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6219245413003DC18A /* CUSMainViewController.xib */; };
+		2A9ECE7219245413003DC18A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6419245413003DC18A /* Default-568h@2x.png */; };
+		2A9ECE7319245413003DC18A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6519245413003DC18A /* Icon.png */; };
+		2A9ECE7419245413003DC18A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6619245413003DC18A /* Icon@2x.png */; };
+		2A9ECE7519245413003DC18A /* CUSPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6919245413003DC18A /* CUSPerson.m */; };
+		2A9ECE7619245413003DC18A /* CUSSchool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6B19245413003DC18A /* CUSSchool.m */; };
+		2A9ECE7719245413003DC18A /* CUSStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6D19245413003DC18A /* CUSStudent.m */; };
+		2A9ECE7819245413003DC18A /* CUSTeacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6F19245413003DC18A /* CUSTeacher.m */; };
+		2A9ECE7C19249A3C003DC18A /* CUSExampleViewController0.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE7B19249A3C003DC18A /* CUSExampleViewController0.m */; };
+		2A9ECE7F19249A50003DC18A /* CUSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE7E19249A50003DC18A /* CUSBaseViewController.m */; };
+		2A9ECE831924B44E003DC18A /* CUSExampleViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE821924B44E003DC18A /* CUSExampleViewController1.m */; };
+		2A9ECE861924B45F003DC18A /* CUSExampleViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE851924B45F003DC18A /* CUSExampleViewController2.m */; };
+		2A9ECE891924B467003DC18A /* CUSExampleViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE881924B467003DC18A /* CUSExampleViewController3.m */; };
+		2A9ECE8C1924B47D003DC18A /* CUSExampleViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE8B1924B47D003DC18A /* CUSExampleViewController4.m */; };
+		2A9ECE8F1924B486003DC18A /* CUSExampleViewController5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE8E1924B486003DC18A /* CUSExampleViewController5.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +76,34 @@
 		2A11F89C1922270F00B9161C /* CUSSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSerializer.m; sourceTree = "<group>"; };
 		2A49EF8C19233DF2003AF796 /* CUSFileStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSFileStorageManager.h; sourceTree = "<group>"; };
 		2A49EF8D19233DF2003AF796 /* CUSFileStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSFileStorageManager.m; sourceTree = "<group>"; };
+		2A9ECE6019245413003DC18A /* CUSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSMainViewController.h; sourceTree = "<group>"; };
+		2A9ECE6119245413003DC18A /* CUSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSMainViewController.m; sourceTree = "<group>"; };
+		2A9ECE6219245413003DC18A /* CUSMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUSMainViewController.xib; sourceTree = "<group>"; };
+		2A9ECE6419245413003DC18A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2A9ECE6519245413003DC18A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		2A9ECE6619245413003DC18A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		2A9ECE6819245413003DC18A /* CUSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSPerson.h; sourceTree = "<group>"; };
+		2A9ECE6919245413003DC18A /* CUSPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSPerson.m; sourceTree = "<group>"; };
+		2A9ECE6A19245413003DC18A /* CUSSchool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSSchool.h; sourceTree = "<group>"; };
+		2A9ECE6B19245413003DC18A /* CUSSchool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSchool.m; sourceTree = "<group>"; };
+		2A9ECE6C19245413003DC18A /* CUSStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSStudent.h; sourceTree = "<group>"; };
+		2A9ECE6D19245413003DC18A /* CUSStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSStudent.m; sourceTree = "<group>"; };
+		2A9ECE6E19245413003DC18A /* CUSTeacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSTeacher.h; sourceTree = "<group>"; };
+		2A9ECE6F19245413003DC18A /* CUSTeacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSTeacher.m; sourceTree = "<group>"; };
+		2A9ECE7A19249A3C003DC18A /* CUSExampleViewController0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController0.h; sourceTree = "<group>"; };
+		2A9ECE7B19249A3C003DC18A /* CUSExampleViewController0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController0.m; sourceTree = "<group>"; };
+		2A9ECE7D19249A50003DC18A /* CUSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSBaseViewController.h; sourceTree = "<group>"; };
+		2A9ECE7E19249A50003DC18A /* CUSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSBaseViewController.m; sourceTree = "<group>"; };
+		2A9ECE811924B44E003DC18A /* CUSExampleViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController1.h; sourceTree = "<group>"; };
+		2A9ECE821924B44E003DC18A /* CUSExampleViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController1.m; sourceTree = "<group>"; };
+		2A9ECE841924B45F003DC18A /* CUSExampleViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController2.h; sourceTree = "<group>"; };
+		2A9ECE851924B45F003DC18A /* CUSExampleViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController2.m; sourceTree = "<group>"; };
+		2A9ECE871924B467003DC18A /* CUSExampleViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController3.h; sourceTree = "<group>"; };
+		2A9ECE881924B467003DC18A /* CUSExampleViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController3.m; sourceTree = "<group>"; };
+		2A9ECE8A1924B47D003DC18A /* CUSExampleViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController4.h; sourceTree = "<group>"; };
+		2A9ECE8B1924B47D003DC18A /* CUSExampleViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController4.m; sourceTree = "<group>"; };
+		2A9ECE8D1924B486003DC18A /* CUSExampleViewController5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController5.h; sourceTree = "<group>"; };
+		2A9ECE8E1924B486003DC18A /* CUSExampleViewController5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController5.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +165,9 @@
 		2A11F86719221F7D00B9161C /* CUSFileStorageExample */ = {
 			isa = PBXGroup;
 			children = (
+				2A9ECE5F19245413003DC18A /* controller */,
+				2A9ECE6319245413003DC18A /* images */,
+				2A9ECE6719245413003DC18A /* model */,
 				2A11F87019221F7D00B9161C /* CUSAppDelegate.h */,
 				2A11F87119221F7D00B9161C /* CUSAppDelegate.m */,
 				2A11F87319221F7E00B9161C /* Images.xcassets */,
@@ -178,6 +225,55 @@
 				2A11F89C1922270F00B9161C /* CUSSerializer.m */,
 			);
 			path = CUSSerializer;
+			sourceTree = "<group>";
+		};
+		2A9ECE5F19245413003DC18A /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A9ECE6019245413003DC18A /* CUSMainViewController.h */,
+				2A9ECE6119245413003DC18A /* CUSMainViewController.m */,
+				2A9ECE6219245413003DC18A /* CUSMainViewController.xib */,
+				2A9ECE7D19249A50003DC18A /* CUSBaseViewController.h */,
+				2A9ECE7E19249A50003DC18A /* CUSBaseViewController.m */,
+				2A9ECE7A19249A3C003DC18A /* CUSExampleViewController0.h */,
+				2A9ECE7B19249A3C003DC18A /* CUSExampleViewController0.m */,
+				2A9ECE811924B44E003DC18A /* CUSExampleViewController1.h */,
+				2A9ECE821924B44E003DC18A /* CUSExampleViewController1.m */,
+				2A9ECE841924B45F003DC18A /* CUSExampleViewController2.h */,
+				2A9ECE851924B45F003DC18A /* CUSExampleViewController2.m */,
+				2A9ECE871924B467003DC18A /* CUSExampleViewController3.h */,
+				2A9ECE881924B467003DC18A /* CUSExampleViewController3.m */,
+				2A9ECE8A1924B47D003DC18A /* CUSExampleViewController4.h */,
+				2A9ECE8B1924B47D003DC18A /* CUSExampleViewController4.m */,
+				2A9ECE8D1924B486003DC18A /* CUSExampleViewController5.h */,
+				2A9ECE8E1924B486003DC18A /* CUSExampleViewController5.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		2A9ECE6319245413003DC18A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2A9ECE6419245413003DC18A /* Default-568h@2x.png */,
+				2A9ECE6519245413003DC18A /* Icon.png */,
+				2A9ECE6619245413003DC18A /* Icon@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		2A9ECE6719245413003DC18A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				2A9ECE6819245413003DC18A /* CUSPerson.h */,
+				2A9ECE6919245413003DC18A /* CUSPerson.m */,
+				2A9ECE6A19245413003DC18A /* CUSSchool.h */,
+				2A9ECE6B19245413003DC18A /* CUSSchool.m */,
+				2A9ECE6C19245413003DC18A /* CUSStudent.h */,
+				2A9ECE6D19245413003DC18A /* CUSStudent.m */,
+				2A9ECE6E19245413003DC18A /* CUSTeacher.h */,
+				2A9ECE6F19245413003DC18A /* CUSTeacher.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +352,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9ECE7119245413003DC18A /* CUSMainViewController.xib in Resources */,
+				2A9ECE7419245413003DC18A /* Icon@2x.png in Resources */,
+				2A9ECE7219245413003DC18A /* Default-568h@2x.png in Resources */,
+				2A9ECE7319245413003DC18A /* Icon.png in Resources */,
 				2A11F86C19221F7D00B9161C /* InfoPlist.strings in Resources */,
 				2A11F87419221F7E00B9161C /* Images.xcassets in Resources */,
 			);
@@ -276,12 +376,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9ECE7C19249A3C003DC18A /* CUSExampleViewController0.m in Sources */,
+				2A9ECE831924B44E003DC18A /* CUSExampleViewController1.m in Sources */,
+				2A9ECE7519245413003DC18A /* CUSPerson.m in Sources */,
+				2A9ECE7719245413003DC18A /* CUSStudent.m in Sources */,
 				2A11F89919221FF300B9161C /* DataPersistence.m in Sources */,
 				2A11F89D1922270F00B9161C /* CUSSerializer.m in Sources */,
+				2A9ECE7819245413003DC18A /* CUSTeacher.m in Sources */,
 				2A11F87219221F7D00B9161C /* CUSAppDelegate.m in Sources */,
+				2A9ECE7619245413003DC18A /* CUSSchool.m in Sources */,
 				2A11F86E19221F7D00B9161C /* main.m in Sources */,
+				2A9ECE7F19249A50003DC18A /* CUSBaseViewController.m in Sources */,
+				2A9ECE8C1924B47D003DC18A /* CUSExampleViewController4.m in Sources */,
+				2A9ECE7019245413003DC18A /* CUSMainViewController.m in Sources */,
+				2A9ECE861924B45F003DC18A /* CUSExampleViewController2.m in Sources */,
 				2A11F89619221FD400B9161C /* CUSFileStorage.m in Sources */,
+				2A9ECE8F1924B486003DC18A /* CUSExampleViewController5.m in Sources */,
 				2A49EF8E19233DF2003AF796 /* CUSFileStorageManager.m in Sources */,
+				2A9ECE891924B467003DC18A /* CUSExampleViewController3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +515,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CUSFileStorageExample/CUSFileStorageExample-Prefix.pch";
 				INFOPLIST_FILE = "CUSFileStorageExample/CUSFileStorageExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -416,6 +529,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CUSFileStorageExample/CUSFileStorageExample-Prefix.pch";
 				INFOPLIST_FILE = "CUSFileStorageExample/CUSFileStorageExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

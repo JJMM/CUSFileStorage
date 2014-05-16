@@ -10,9 +10,7 @@
  */
 #import "CUSSerializer.h"
 
-@protocol CUSFilter <NSObject>
--(BOOL) accept:(id)item;
-@end
+typedef BOOL(^CUSFilter)(NSString *key,id item);
 
 /**
  @abstract Don't alloc by yourself.
@@ -44,7 +42,7 @@
             CUSFilter
  @result object
  */
-- (id)objectForFilter:(id<CUSFilter>)filter;
+- (id)objectForFilter:(CUSFilter)filter;
 /**
  @abstract delete object by primary key
  @param aKey
@@ -52,6 +50,10 @@
  */
 - (void)removeObjectForKey:(NSString *)aKey;
 
+
+- (void)removeObjectForFilter:(CUSFilter)filter;
+
+- (void)removeDB;
 /**
  @result get key list for cycle
  */
@@ -69,7 +71,7 @@
  CUSFilter
  @result object
  */
-- (NSArray *)allValuesForFilter:(id<CUSFilter>)filter;
+- (NSArray *)allValuesForFilter:(CUSFilter)filter;
 
 /**
  @abstract Don't save data to disk until the method named endUpdates is called
