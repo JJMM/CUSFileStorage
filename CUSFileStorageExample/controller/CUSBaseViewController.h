@@ -16,10 +16,10 @@
 
 @interface CUSBaseViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong) UITableView *tableView;
-@property(nonatomic,strong) NSMutableArray *dataItems;
 
 -(NSString *)getDBName;
 -(NSInteger)getAddCount;
+-(NSString *)getKeyByIndex:(NSInteger)index;
 
 -(id)doCreateItem:(NSInteger)index;
 -(void)addButtonClicked:(id)sender;

@@ -14,25 +14,27 @@
     return @"TestDB5";
 }
 
-
 -(NSInteger)getAddCount{
-    return 10000;
+    return 100;
 }
 
 -(id)doCreateItem:(NSInteger)index{
-    return [CUSModelFactory createStudent:index];
+    return [CUSModelFactory createTeacher:index];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
     static NSString *CellIdentifier = @"CUS_CELL";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    CUSStudent *value = [self.dataItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = value.name;
+    NSString *rowKey = [self getKeyByIndex:indexPath.row];
+    CUSTeacher *value = [storage objectForKey:rowKey];
+    cell.textLabel.text = rowKey;
+    cell.detailTextLabel.text = value.name;
     
     return cell;
 }

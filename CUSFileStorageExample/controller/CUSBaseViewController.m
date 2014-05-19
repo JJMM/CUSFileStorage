@@ -8,35 +8,14 @@
 
 #import "CUSBaseViewController.h"
 
-@interface CUSBaseViewController ()
-
-@end
-
 @implementation CUSBaseViewController
 @synthesize tableView = _tableView;
-@synthesize dataItems;
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.dataItems = [NSMutableArray arrayWithArray:[self loadDataItems]];
-    }
-    return self;
+-(NSString *)getKeyByIndex:(NSInteger)index{
+    return [NSString stringWithFormat:@"key%i",index];
 }
 
--(NSMutableArray *)loadDataItems{
-    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
-    NSMutableArray *array = [storage objectForKey:@"array"];
-    if (array) {
-        return array;
-    }else{
-        return [NSMutableArray array];
-    }
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
@@ -60,29 +39,45 @@
     
     self.navigationItem.rightBarButtonItem = buttonItem;
 }
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    self.tableView.frame = self.view.bounds;
+}
+
 -(NSString *)getDBName{
     return @"TestDB";
 }
+
 -(NSInteger)getAddCount{
     return 1;
 }
+
 -(void)addButtonClicked:(id)sender{
-    NSInteger counter = [self.dataItems count];
+    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
+    NSInteger counter = [storage count];
     
+    NSMutableDictionary *tempDic = [NSMutableDictionary dictionary];
     for (int i = counter;i<counter + [self getAddCount];i++) {
-        [self.dataItems addObject:[self doCreateItem:i]];
+        [tempDic setObject:[self doCreateItem:i] forKey:[self getKeyByIndex:i]];
     }
     
+    NSArray *keyArray = [tempDic allKeys];
+    
     CGFloat time = BNRTimeBlock(^{
-        CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
-        [storage setObject:self.dataItems forKey:@"array"];
+        //Multiple values
+        [storage beginUpdates];
+        for (NSString *key in keyArray) {
+            [storage setObject:[tempDic objectForKey:key] forKey:key];
+        }
+        [storage endUpdates];
+        
     });
     NSString *timeStr = [NSString stringWithFormat:@"second: %f\n", time];
     NSLog(@"%@",timeStr);
     if ([TSMessage isNotificationActive]) {
         [TSMessage dismissActiveNotification];
     }
-    
     [TSMessage showNotificationInViewController:self title:@"save to file time" subtitle:timeStr type:TSMessageNotificationTypeMessage];
     
     [self.tableView reloadData];
@@ -94,33 +89,37 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.dataItems count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
+    return [storage count];
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 44;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
     static NSString *CellIdentifier = @"CUS_CELL";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
+    NSString *rowKey = [self getKeyByIndex:indexPath.row];
+    NSString *value = [storage objectForKey:rowKey];
+    cell.textLabel.text = rowKey;
+    cell.detailTextLabel.text = value;
+    
     return cell;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     [CUSFileStorageManager clearAllCache];
 }

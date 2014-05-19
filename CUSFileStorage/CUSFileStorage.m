@@ -48,7 +48,7 @@
     NSMutableDictionary *serializStorageDic = [self getStorageDB];
     id value = [serializStorageDic objectForKey:aKey];
     id convertValue = [self convertValue:value];
-    return [convertValue copy];
+    return convertValue;
 }
 
 -(id)objectForFilter:(CUSFilter)filter{
@@ -159,21 +159,17 @@
     self.cacheStorageDB = nil;
 }
 ///////////////////internal method///////////////////////
-//获取表存储文件名
 -(NSString *)getTableNameFile{
     return [NSString stringWithFormat:@"%@.plist",[self getTableName]];
 }
 
 -(NSString*)getFilePath:(NSString *)fileName{
-    //检索Documents目录路径。第二个参数表示将搜索限制在我们的应用程序沙盒中
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    //每个应用程序只有一个Documents目录
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    //创建文件名
     return [documentsDirectory stringByAppendingPathComponent:fileName];
 }
 
-//获取文件真实路径
+//real file name
 -(NSString *)getTableNameFilePath{
     NSString *filePaht = [NSString stringWithFormat:@"CUS_FS_%@",[self getTableNameFile]];
     return [self getFilePath:filePaht];
@@ -204,7 +200,7 @@
     NSString *filePath = [self getTableNameFilePath];
     BOOL ret = [dic writeToFile:filePath atomically:YES];
     if (!ret) {
-        NSLog(@"写入文件[%@]时发生错误",[self description]);
+        NSLog(@"error:write file[%@]",[self description]);
     }
 }
 

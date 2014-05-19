@@ -21,8 +21,6 @@
 		2A11F88719221F7E00B9161C /* CUSFileStorageExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F88619221F7E00B9161C /* CUSFileStorageExampleTests.m */; };
 		2A11F89619221FD400B9161C /* CUSFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89519221FD400B9161C /* CUSFileStorage.m */; };
 		2A11F89D1922270F00B9161C /* CUSSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11F89C1922270F00B9161C /* CUSSerializer.m */; };
-		2A4CE0841929747E00624D6D /* CUSExampleViewController6.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4CE0831929747E00624D6D /* CUSExampleViewController6.m */; };
-		2A4CE0871929763F00624D6D /* CUSExampleViewController7.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4CE0861929763F00624D6D /* CUSExampleViewController7.m */; };
 		2A9ECE7019245413003DC18A /* CUSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6119245413003DC18A /* CUSMainViewController.m */; };
 		2A9ECE7119245413003DC18A /* CUSMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6219245413003DC18A /* CUSMainViewController.xib */; };
 		2A9ECE7219245413003DC18A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9ECE6419245413003DC18A /* Default-568h@2x.png */; };
@@ -94,10 +92,6 @@
 		2A11F89519221FD400B9161C /* CUSFileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSFileStorage.m; sourceTree = "<group>"; };
 		2A11F89B1922270F00B9161C /* CUSSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSSerializer.h; sourceTree = "<group>"; };
 		2A11F89C1922270F00B9161C /* CUSSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSSerializer.m; sourceTree = "<group>"; };
-		2A4CE0821929747E00624D6D /* CUSExampleViewController6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController6.h; sourceTree = "<group>"; };
-		2A4CE0831929747E00624D6D /* CUSExampleViewController6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController6.m; sourceTree = "<group>"; };
-		2A4CE0851929763F00624D6D /* CUSExampleViewController7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSExampleViewController7.h; sourceTree = "<group>"; };
-		2A4CE0861929763F00624D6D /* CUSExampleViewController7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSExampleViewController7.m; sourceTree = "<group>"; };
 		2A9ECE6019245413003DC18A /* CUSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSMainViewController.h; sourceTree = "<group>"; };
 		2A9ECE6119245413003DC18A /* CUSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSMainViewController.m; sourceTree = "<group>"; };
 		2A9ECE6219245413003DC18A /* CUSMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CUSMainViewController.xib; sourceTree = "<group>"; };
@@ -293,10 +287,6 @@
 				2A9ECE8B1924B47D003DC18A /* CUSExampleViewController4.m */,
 				2A9ECE8D1924B486003DC18A /* CUSExampleViewController5.h */,
 				2A9ECE8E1924B486003DC18A /* CUSExampleViewController5.m */,
-				2A4CE0821929747E00624D6D /* CUSExampleViewController6.h */,
-				2A4CE0831929747E00624D6D /* CUSExampleViewController6.m */,
-				2A4CE0851929763F00624D6D /* CUSExampleViewController7.h */,
-				2A4CE0861929763F00624D6D /* CUSExampleViewController7.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -515,7 +505,6 @@
 				2A9ECE7719245413003DC18A /* CUSStudent.m in Sources */,
 				2A11F89D1922270F00B9161C /* CUSSerializer.m in Sources */,
 				2AC86519192710BD00548E51 /* TSMessageView.m in Sources */,
-				2A4CE0871929763F00624D6D /* CUSExampleViewController7.m in Sources */,
 				2AC86518192710BD00548E51 /* TSBlurView.m in Sources */,
 				2A9ECE7819245413003DC18A /* CUSTeacher.m in Sources */,
 				2AC8651C192716F600548E51 /* HexColor.m in Sources */,
@@ -527,7 +516,6 @@
 				2A9ECE8C1924B47D003DC18A /* CUSExampleViewController4.m in Sources */,
 				2AC8651F192719D000548E51 /* CUSModelFactory.m in Sources */,
 				2A9ECE7019245413003DC18A /* CUSMainViewController.m in Sources */,
-				2A4CE0841929747E00624D6D /* CUSExampleViewController6.m in Sources */,
 				2A9ECE861924B45F003DC18A /* CUSExampleViewController2.m in Sources */,
 				2A11F89619221FD400B9161C /* CUSFileStorage.m in Sources */,
 				2A9ECE8F1924B486003DC18A /* CUSExampleViewController5.m in Sources */,

@@ -17,14 +17,12 @@
 
 -(void)loadData{
     self.dataItems = [NSMutableArray array];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"One string dictionary",@"",@"CUSExampleViewController0", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi string dictionary",@"",@"CUSExampleViewController1", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"One string array",@"",@"CUSExampleViewController2", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi string array",@"",@"CUSExampleViewController3", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"One object array",@"",@"CUSExampleViewController4", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi object array",@"",@"CUSExampleViewController5", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"One recursion object array",@"",@"CUSExampleViewController6", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi recursion object array",@"",@"CUSExampleViewController7", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"One string",@"",@"CUSExampleViewController0", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi string",@"",@"CUSExampleViewController1", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"One object",@"",@"CUSExampleViewController2", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi object",@"",@"CUSExampleViewController3", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"One recursion object",@"",@"CUSExampleViewController4", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi recursion object",@"",@"CUSExampleViewController5", nil]];
 }
 
 - (void)viewDidLoad{
