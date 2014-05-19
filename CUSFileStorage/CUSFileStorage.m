@@ -1,11 +1,7 @@
-//
-//  CUSFileStorage.m
-//  CUSFileStorageExample
-//
-//  Created by zhangyu on 14-5-13.
-//  Copyright (c) 2014 zhangyu. All rights reserved.
-//
-
+/**
+ @version 1.00 2014/05/13 Creation
+ @copyright Copyright (c) 2014 zhangyu. All rights reserved.
+ */
 #import "CUSFileStorage.h"
 
 @interface CUSFileStorage()
