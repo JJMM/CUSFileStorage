@@ -3,7 +3,7 @@ CUSFileStorage
 
 A simple IOS file storage system using CUSSerializer achieve automatic support recursive model storage
 
-![image](https://github.com/JJMM/CUSResources/raw/master/CUSFileStorage1.jpg)<&nbsp><&nbsp>
+![image](https://github.com/JJMM/CUSResources/raw/master/CUSFileStorage1.jpg)<br>
 ![image](https://github.com/JJMM/CUSResources/raw/master/CUSFileStorage2.jpg)
 ## How To Get Started
 1.Copy the folder named CUSFileStorage to your project
