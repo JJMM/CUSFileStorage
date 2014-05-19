@@ -6,11 +6,11 @@ A simple IOS file storage system using CUSSerializer achieve automatic support r
 ![image](https://github.com/JJMM/CUSResources/raw/master/CUSFileStorage1.jpg)<br>
 ![image](https://github.com/JJMM/CUSResources/raw/master/CUSFileStorage2.jpg)
 ## How To Get Started
-1.Copy the folder named CUSFileStorage to your project
+1.Copy the folder named CUSFileStorage to your project<br>
 2.Copy the folder named CUSSerializer to your project.You can new version from git(https://github.com/JJMM/CUSSerializer)
 
 ## Start
-### Us like NSMutableDictionary
+### Use like NSMutableDictionary
 ```objective-c
     CUSFileStorage *storage = [CUSFileStorageManager getFileStorage];
     [storage setObject:@"value" forKey:@"key01"];
