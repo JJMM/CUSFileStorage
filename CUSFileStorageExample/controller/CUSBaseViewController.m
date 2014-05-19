@@ -90,6 +90,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage];
+//    NSString *value = [storage objectForKey:@"key01"];
+    
+    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage];
+    CUSStudent *model = [storage objectForKey:@"key01"];
     return 1;
 }
 
