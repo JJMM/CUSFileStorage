@@ -7,7 +7,7 @@
 //
 
 #import "CUSBaseViewController.h"
-#import "CUSFileStorageManager.h"
+
 @interface CUSBaseViewController ()
 
 @end
@@ -26,7 +26,7 @@
 }
 
 -(NSMutableArray *)loadDataItems{
-    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:@"TestDB"];
+    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
     NSMutableArray *array = [storage objectForKey:@"array"];
     if (array) {
         return array;
@@ -60,7 +60,9 @@
     
     self.navigationItem.rightBarButtonItem = buttonItem;
 }
-
+-(NSString *)getDBName{
+    return @"TestDB";
+}
 -(NSInteger)getAddCount{
     return 1;
 }
@@ -68,22 +70,28 @@
     NSInteger counter = [self.dataItems count];
     
     for (int i = counter;i<counter + [self getAddCount];i++) {
-        [self.dataItems addObject:[NSString stringWithFormat:@"item%i",i]];
-        NSMutableArray *array = [NSMutableArray array];
-        NSIndexPath *path = [NSIndexPath indexPathForRow:i inSection:0];
-        [array addObject:path];
+        [self.dataItems addObject:[self doCreateItem:i]];
     }
     
-//    CGFloat time = BNRTimeBlock(^{
-        CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:@"TestDB"];
+    CGFloat time = BNRTimeBlock(^{
+        CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:[self getDBName]];
         [storage setObject:self.dataItems forKey:@"array"];
-//    });
-//    printf ("save to file time: %f\n", time);
+    });
+    NSString *timeStr = [NSString stringWithFormat:@"second: %f\n", time];
+    NSLog(@"%@",timeStr);
+    if ([TSMessage isNotificationActive]) {
+        [TSMessage dismissActiveNotification];
+    }
     
-
+    [TSMessage showNotificationInViewController:self title:@"save to file time" subtitle:timeStr type:TSMessageNotificationTypeMessage];
     
     [self.tableView reloadData];
 }
+
+-(id)doCreateItem:(NSInteger)index{
+    return [NSString stringWithFormat:@"item%i",index];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -108,136 +116,19 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-//    NSArray *array = [self.dataItems objectAtIndex:indexPath.row];
-//    if (array && [array count] >= 1) {
-//        cell.textLabel.text = [array objectAtIndex:0];
-//        cell.detailTextLabel.text = [array objectAtIndex:1];
-//    }
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     return cell;
 }
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *array = [self.dataItems objectAtIndex:indexPath.row];
-    
-}
-
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
-    
     [CUSFileStorageManager clearAllCache];
 }
 
-
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    self.title = @"CUSFileStorage";
-//    [self testCode];
-//}
-
--(void)viewWillLayoutSubviews{
-    [super viewWillLayoutSubviews];
-    self.tableView.frame = self.view.bounds;
-}
-
--(void)testCode{
-    //init CUSSerializer environment
-    [CUSSerializer setLogStatus:NO];
-    [CUSSerializer setClassMapping:@"CUSSchool" mappingFor:@"School"];
-    [CUSSerializer setClassMapping:@"CUSTeacher" mappingFor:@"Teacher"];
-    [CUSSerializer setClassMapping:@"CUSStudent" mappingFor:@"Student"];
-    
-    //    //load from file
-    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"DictionaryFile" ofType:@"plist"];
-    //    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
-    //    //deserialize to Model
-    //    CUSSchool *school = [dictionary deserialize];
-    //    //serialize to NSDictionary.It is similar to the file
-    //    NSDictionary *serializeDic = [school serialize];
-    //    NSLog(@"school:%@",school);
-    
-    //    self.textView.text = [NSString stringWithFormat:@"%@",serializeDic];
-    
-    CUSFileStorage *storage = [CUSFileStorageManager getFileStorage:@"TestDB"];
-    //    [storage beginUpdates];
-    //    for (int i = 0; i < 1000000; i++) {
-    //        NSString *key = [NSString stringWithFormat:@"key%i",i];
-    ////        CUSSchool *school = [self createSchool];
-    ////        school.schoolId = key;
-    //        [storage setObject:key forKey:key];
-    //    }
-    //    [storage endUpdates];
-    id obj = [storage objectForFilter:^BOOL(NSString *key, id item) {
-        //        CUSSchool *school = (CUSSchool *)item;
-        if ([@"key8888" isEqualToString:key]) {
-            return YES;
-        }
-        return NO;
-    }];
-    //    id obj = [storage objectForKey:@"key8888"];
-    //    NSDictionary *serializeDic = [obj serialize];
-//    self.textView.text = [NSString stringWithFormat:@"%@",obj];
-    
-}
-
-////////////////////Example code////////////////////
--(CUSSchool *)createSchool{
-    CUSSchool *school = [[CUSSchool alloc]init];
-    school.schoolId = @"id0123456";
-    school.schoolName = @"qinghuadaxue";
-    school.schoolAddress = nil;
-    school.schoolPost = 123;
-    school.schoolFloat = 1234.5678;
-    school.boolValue = YES;
-    school.ch = 's';
-    school.schoolNumber = [NSNumber numberWithInt:6];
-    school.schoolDate = [NSDate date];
-    school.headmaster = [self createTeacher:99];
-    NSMutableArray *teacherArray = [NSMutableArray array];
-    for (int i = 0; i < 3; i++) {
-        [teacherArray addObject:[self createTeacher:i]];
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if ([TSMessage isNotificationActive]) {
+        [TSMessage dismissActiveNotification];
     }
-    school.teacherArray = teacherArray;
-    
-    NSMutableDictionary *teacherDictionary = [NSMutableDictionary dictionary];
-    for (int i = 0; i < 5; i++) {
-        NSString *key = [NSString stringWithFormat:@"key%i",i];
-        [teacherDictionary setObject:[self createTeacher:i] forKey:key];
-    }
-    school.teacherDictionary = teacherDictionary;
-    return school;
-}
--(CUSTeacher *)createTeacher:(NSInteger)index{
-    CUSTeacher *model = [[CUSTeacher alloc]init];
-    model.iden = [NSString stringWithFormat:@"teacherId%i",index];
-    model.name = [NSString stringWithFormat:@"teacherName%i",index];
-    model.age = 30 +index;
-    model.courseName = [NSString stringWithFormat:@"courseName%i",index];
-    
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i = 0; i < 2; i++) {
-        [array addObject:[self createStudent:i]];
-    }
-    model.studentArray = array;
-    
-    return model;
-}
--(CUSStudent *)createStudent:(NSInteger)index{
-    CUSStudent *model = [[CUSStudent alloc]init];
-    model.iden = [NSString stringWithFormat:@"studentId%i",index];
-    model.name = [NSString stringWithFormat:@"studentName%i",index];
-    model.age = 15 +index;
-    return model;
-}
-
--(void)dicWriteToFile:(NSDictionary *)dic{
-    NSString *filePath = [NSString stringWithFormat:@"%@/Documents/DictionaryFile.plist",NSHomeDirectory()];
-    [dic writeToFile:filePath atomically:YES];
 }
 @end

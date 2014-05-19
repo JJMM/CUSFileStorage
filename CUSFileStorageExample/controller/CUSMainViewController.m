@@ -17,12 +17,14 @@
 
 -(void)loadData{
     self.dataItems = [NSMutableArray array];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"CUSExampleViewController0",@"",@"CUSExampleViewController0", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"CUSExampleViewController1",@"",@"CUSExampleViewController1", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"CUSExampleViewController2",@"",@"CUSExampleViewController2", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"CUSExampleViewController3",@"",@"CUSExampleViewController3", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"CUSExampleViewController4",@"",@"CUSExampleViewController4", nil]];
-    [self.dataItems addObject:[NSArray arrayWithObjects:@"CUSExampleViewController5",@"",@"CUSExampleViewController5", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"One string dictionary",@"",@"CUSExampleViewController0", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi string dictionary",@"",@"CUSExampleViewController1", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"One string array",@"",@"CUSExampleViewController2", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi string array",@"",@"CUSExampleViewController3", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"One object array",@"",@"CUSExampleViewController4", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi object array",@"",@"CUSExampleViewController5", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"One recursion object array",@"",@"CUSExampleViewController6", nil]];
+    [self.dataItems addObject:[NSArray arrayWithObjects:@"Multi recursion object array",@"",@"CUSExampleViewController7", nil]];
 }
 
 - (void)viewDidLoad{
@@ -38,7 +40,7 @@
         self.tabBarController.tabBar.translucent = NO;
     }
 #endif
-    self.title = @"CUSSender";
+    self.title = @"CUSFileStorage";
     [self loadData];
     UITableView *talbeView = [[UITableView alloc]init];
     talbeView.dataSource = self;

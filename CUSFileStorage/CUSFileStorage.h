@@ -10,6 +10,9 @@
  */
 #import "CUSSerializer.h"
 
+/**
+ @abstract traversal of all item, its efficiency is low
+ */
 typedef BOOL(^CUSFilter)(NSString *key,id item);
 
 /**
@@ -43,6 +46,7 @@ typedef BOOL(^CUSFilter)(NSString *key,id item);
  @result object
  */
 - (id)objectForFilter:(CUSFilter)filter;
+
 /**
  @abstract delete object by primary key
  @param aKey
@@ -50,15 +54,23 @@ typedef BOOL(^CUSFilter)(NSString *key,id item);
  */
 - (void)removeObjectForKey:(NSString *)aKey;
 
-
+/**
+ @abstract delete object by filter
+ @param filter
+            CUSFilter
+ */
 - (void)removeObjectForFilter:(CUSFilter)filter;
 
+/**
+ @abstract delete file
+            WARNNING:remove all datas
+ */
 - (void)removeDB;
+
 /**
  @result get key list for cycle
  */
 - (NSArray *)allKeys;
-
 
 /**
  @result get value list
@@ -68,10 +80,16 @@ typedef BOOL(^CUSFilter)(NSString *key,id item);
 /**
  @abstract get object by filter
  @param filter
- CUSFilter
+            CUSFilter
  @result object
  */
 - (NSArray *)allValuesForFilter:(CUSFilter)filter;
+
+
+/**
+ @result get count
+ */
+- (NSUInteger)count;
 
 /**
  @abstract Don't save data to disk until the method named endUpdates is called
@@ -87,4 +105,29 @@ typedef BOOL(^CUSFilter)(NSString *key,id item);
  @abstract clear cache
  */
 -(void)clearCache;
+@end
+
+/**
+ @abstract CUSFileStorageManager
+ */
+@interface CUSFileStorageManager : NSObject
+
+/**
+ @abstract get an shared instance of CUSFileStorage
+ @result the default instance of CUSFileStorage
+ */
++(CUSFileStorage *)getFileStorage;
+
+/**
+ @abstract get an shared instance of CUSFileStorage
+ @param tableName
+            the file name
+ @result the instance of CUSFileStorage
+ */
++(CUSFileStorage *)getFileStorage:(NSString *)tableName;
+
+/**
+ @abstract clear all CUSFileStorage cache
+ */
++(void)clearAllCache;
 @end

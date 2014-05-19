@@ -1,19 +1,20 @@
 //
-//  CUSExampleViewController3.m
+//  CUSExampleViewController6.m
 //  CUSFileStorageExample
 //
-//  Created by zhangyu on 14-5-15.
+//  Created by zhangyu on 14-5-19.
 //  Copyright (c) 2014年 zhangyu. All rights reserved.
 //
 
-#import "CUSExampleViewController3.h"
+#import "CUSExampleViewController6.h"
 
-@implementation CUSExampleViewController3
+@implementation CUSExampleViewController6
 -(NSString *)getDBName{
-    return @"TestDB3";
+    return @"TestDB6";
 }
--(NSInteger)getAddCount{
-    return 10000;
+
+-(id)doCreateItem:(NSInteger)index{
+    return [CUSModelFactory createTeacher:index];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -23,8 +24,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    NSString *value = [self.dataItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = value;
+    
+    CUSTeacher *value = [self.dataItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = value.name;
     
     return cell;
 }

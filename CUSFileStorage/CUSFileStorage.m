@@ -7,7 +7,6 @@
 //
 
 #import "CUSFileStorage.h"
-#import "DataPersistence.h"
 
 @interface CUSFileStorage()
 @property(nonatomic,assign) BOOL beginFlag;
@@ -132,6 +131,16 @@
     return retArray;
 }
 
+
+/**
+ @result get value list
+ */
+- (NSUInteger)count{
+    NSMutableDictionary *serializStorageDic = [self getStorageDB];
+    return [serializStorageDic count];
+}
+
+
 -(void)beginUpdates{
     self.beginFlag = YES;
 }
@@ -154,10 +163,20 @@
 -(NSString *)getTableNameFile{
     return [NSString stringWithFormat:@"%@.plist",[self getTableName]];
 }
+
+-(NSString*)getFilePath:(NSString *)fileName{
+    //检索Documents目录路径。第二个参数表示将搜索限制在我们的应用程序沙盒中
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //每个应用程序只有一个Documents目录
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    //创建文件名
+    return [documentsDirectory stringByAppendingPathComponent:fileName];
+}
+
 //获取文件真实路径
 -(NSString *)getTableNameFilePath{
     NSString *filePaht = [NSString stringWithFormat:@"CUS_FS_%@",[self getTableNameFile]];
-    return [DataPersistence getFilePath:filePaht];
+    return [self getFilePath:filePaht];
 }
 
 -(NSMutableDictionary *)getStorageDB{
@@ -171,7 +190,7 @@
     NSMutableDictionary *retDic = [NSMutableDictionary dictionary];
     NSString *filePath = [self getTableNameFilePath];
     if([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        retDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePath];
+        retDic = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];;
     }else{
         retDic = [NSMutableDictionary dictionary];
     }
@@ -194,6 +213,37 @@
         return [value deserialize];
     }else{
         return value;
+    }
+}
+@end
+
+/////////////////////////CUSFileStorageManager/////////////////////////
+static NSMutableDictionary *CUSFileStorageDictionary;
+@implementation CUSFileStorageManager
+
++(CUSFileStorage *)getFileStorage{
+    return [self getFileStorage:@"DefaultDB"];
+}
+
++(CUSFileStorage *)getFileStorage:(NSString *)tableName{
+    if (!CUSFileStorageDictionary) {
+        CUSFileStorageDictionary = [[NSMutableDictionary alloc]init];
+    }
+    CUSFileStorage *fileStorage = [CUSFileStorageDictionary objectForKey:tableName];
+    if (!fileStorage) {
+        fileStorage = [[CUSFileStorage alloc]init];
+        fileStorage.tableName = tableName;
+        [CUSFileStorageDictionary setValue:fileStorage forKey:tableName];
+    }
+    return fileStorage;
+}
+
++(void)clearAllCache{
+    if (!CUSFileStorageDictionary) {
+        return;
+    }
+    for (CUSFileStorage *fileStorage in CUSFileStorageDictionary) {
+        [fileStorage clearCache];
     }
 }
 @end
